@@ -1,0 +1,13 @@
+/.idea
+/.vs
+/.vscode
+/.xmake
+/archive/packed
+/archive/source/archive/**/*.*
+/archive/source/raw/**/*.json
+/archive/*.xml
+/archive/*.zip
+/build
+/dev
+__pycache__
+CMakeLists.txt
