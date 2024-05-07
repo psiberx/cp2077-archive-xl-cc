@@ -1,6 +1,6 @@
 param ($StageDir, $ProjectName, $Version, $GlobalScope = "${ProjectName}.Global")
 
-$ScriptsDir = "${StageDir}/red4ext/plugins/${ProjectName}/Scripts"
+$ScriptsDir = "${StageDir}/red4ext/plugins/${TopProjectName}/Scripts"
 
 $SourceFiles = Get-ChildItem -Path "scripts" -Filter *.reds -Recurse
 $Bundles = @{}
@@ -35,7 +35,7 @@ New-Item -ItemType directory -Force -Path ${ScriptsDir} | Out-Null
 
 foreach ($Bundle in $Bundles.Values) {
     $BundleFile = "${ScriptsDir}/$($Bundle.Scope).reds"
-    Out-File -FilePath ${BundleFile} -Encoding ascii -InputObject "// ${$Bundle.Scope} ${Version}"
+    Out-File -FilePath ${BundleFile} -Encoding ascii -InputObject "// ${ProjectName} ${Version}"
 
     if ($Bundle.Module) {
         Out-File -FilePath ${BundleFile} -Encoding ascii -InputObject "module $($Bundle.Module)" -Append
